@@ -10,6 +10,12 @@ if [[ ! $? -eq 0 ]]; then
     exit 1
 fi
 
+# Check port availability
+sudo yunohost app checkport 8786
+if [[ ! $? -eq 0 ]]; then
+      exit 1
+  fi
+
 # Remove trailing "/"
 path=${path%/}
 
