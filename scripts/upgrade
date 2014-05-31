@@ -6,6 +6,9 @@ path=$(sudo yunohost app setting gateone path)
 # Generate random cookie secret
 secret=$(dd if=/dev/urandom bs=1 count=200 2> /dev/null | tr -c -d 'A-Za-z0-9' | sed -n 's/\(.\{45\}\).*/\1/p')
 
+# Remove trailing "/"
+path=${path%/}
+
 # Install GateOne using the setup.py
 mkdir -p /opt/yunohost/gateone
 cd ../sources && sudo python setup.py install --record /opt/yunohost/gateone/files.txt
