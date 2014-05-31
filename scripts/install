@@ -26,6 +26,9 @@ secret=$(dd if=/dev/urandom bs=1 count=200 2> /dev/null | tr -c -d 'A-Za-z0-9' |
 sudo mkdir -p /opt/yunohost/gateone
 cd ../sources && sudo python setup.py install --record /opt/yunohost/gateone/files.txt
 
+# Start GateOne in order to create conf files
+sudo service gateone start
+
 # Modify Nginx and GateOne configuration file, then copy them to the right place
 sed -i "s@PATHTOCHANGE@$path@g" ../conf/nginx.conf
 sed -i "s@PATHTOCHANGE@$path@g" ../conf/10server.conf
