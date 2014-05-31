@@ -40,7 +40,7 @@ sudo cp ../conf/10server.conf /etc/gateone/conf.d/10server.conf
 sudo chmod 644 /etc/gateone/conf.d/10server.conf
 
 # Add GateOne service to YunoHost's monitoring
-sudo yunohost service add gateone --log /var/log/gateone/
+sudo yunohost service add gateone --log /var/log/gateone/ --status "ps aux | grep gateone | grep -v grep"
 
 # Start GateOne service at boot
 sudo update-rc.d gateone defaults
