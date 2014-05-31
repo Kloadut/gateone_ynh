@@ -14,9 +14,13 @@ cd ../sources && sudo python setup.py install --record /opt/yunohost/gateone/fil
 sed -i "s@PATHTOCHANGE@$path@g" ../conf/nginx.conf
 sed -i "s@PATHTOCHANGE@$path@g" ../conf/10server.conf
 sed -i "s@SECRETTOCHANGE@$secret/@g" ../conf/10server.conf
+sed -i "s@DOMAINTOCHANGE@$domain/@g" ../conf/10server.conf
 sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/gateone.conf
 sudo cp ../conf/10server.conf /etc/gateone/conf.d/10server.conf
 sudo chmod 644 /etc/gateone/conf.d/10server.conf
+
+# Start GateOne service at boot
+sudo update-rc.d gateone defaults
 
 # Reload GateOne, Nginx and regenerate SSOwat conf
 sudo service gateone restart
