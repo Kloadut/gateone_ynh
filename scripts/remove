@@ -1,0 +1,6 @@
+#!/bin/bash
+
+domain=$(sudo yunohost app setting gateone domain)
+sudo service gateone stop
+cat /opt/yunohost/gateone/files.txt | sudo xargs rm -rf
+sudo rm -f /etc/nginx/conf.d/$domain.d/gateone.conf
