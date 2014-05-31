@@ -23,7 +23,7 @@ path=${path%/}
 secret=$(dd if=/dev/urandom bs=1 count=200 2> /dev/null | tr -c -d 'A-Za-z0-9' | sed -n 's/\(.\{45\}\).*/\1/p')
 
 # Install GateOne using the setup.py
-sudo kdir -p /opt/yunohost/gateone
+sudo mkdir -p /opt/yunohost/gateone
 cd ../sources && sudo python setup.py --record /opt/yunohost/gateone/files.txt
 
 # Modify Nginx and GateOne configuration file, then copy them to the right place
