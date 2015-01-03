@@ -5,16 +5,17 @@
         "en": "HTML5-powered terminal emulator and SSH client",
         "fr": "Émulateur de terminal et client SSH en HTML5"
     },
-    "developer": {
+    "url": "http://liftoffsoftware.com/Products/GateOne",
+    "maintainer": {
         "name": "kload",
-        "email": "kload@kload.fr",
-        "url": "http://kload.fr"
+        "email": "kload@kload.fr"
     },
     "multi_instance": "false",
     "arguments": {
         "install" : [
             {
                 "name": "domain",
+                "type": "domain",
                 "ask": {
                     "en": "Choose a domain for GateOne",
                     "fr": "Choisissez un domaine pour GateOne"
@@ -23,6 +24,7 @@
             },
             {
                 "name": "path",
+                "type": "path",
                 "ask": {
                     "en": "Choose a path for GateOne",
                     "fr": "Choisissez un chemin pour GateOne"
