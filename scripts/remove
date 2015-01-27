@@ -3,7 +3,8 @@
 domain=$(sudo yunohost app setting gateone domain)
 sudo service gateone stop
 sudo killall gateone
-sudo update-rc.d gateone disable
+sudo update-rc.d gateone remove
+sudo rm /etc/init.d/gateone
 cat /opt/yunohost/gateone/files.txt | grep gateone | sudo xargs rm -rf
 sudo rm -f /etc/nginx/conf.d/$domain.d/gateone.conf
 sudo rm -rf /etc/gateone
